@@ -1,0 +1,17 @@
+Python性能优化
+
+1、对代码启用性能探测：
+
+python -m cProfile -o identify.out identify.py
+
+2、对结果进行排序：
+
+python -c "import pstats; p=pstats.Stats('identify.out'); p.sort_stats('time').print_stats()"
+
+sort_stats支持以下参数：
+
+calls, cumulative, file, line, module, name, nfl, pcalls, stdname, time
+
+3、交互式
+
+python -m pstats identify.out
