@@ -11,6 +11,8 @@ x64
 ipch
 *.db
 *.suo
+*.tlog
+*.log
 
 # Compiled Object files
 *.slo
@@ -25,7 +27,6 @@ ipch
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -35,7 +36,6 @@ ipch
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
