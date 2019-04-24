@@ -110,6 +110,8 @@ void CobjDetectorDlg::InitPyCaller(LPVOID param)
 	if (NULL == pThis->m_py)
 		pThis->m_py = new pyCaller();
 	pThis->m_bOK = pThis->m_py->Init("detect");
+	if (pThis->m_pyHome[0] && !pThis->m_bOK)
+		AfxMessageBox(_T("导入\"detect.py\"时出错!"));
 	pThis->m_nThreadState[_InitPyCaller] = Thread_Stop;
 }
 
@@ -436,7 +438,7 @@ BOOL CobjDetectorDlg::OnInitDialog()
 	{
 		m_pyHome[0] = '\0';
 #if USING_TENSORFLOW
-		MessageBox(L"python_home配置错误!", L"提示", MB_ICONINFORMATION);
+		MessageBox(L"python_home配置错误!\r\n请通过设置选择python路径。", L"提示", MB_ICONINFORMATION);
 #endif
 	}
 

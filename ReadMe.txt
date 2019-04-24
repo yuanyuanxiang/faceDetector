@@ -45,6 +45,11 @@
 
 5、需要给定目标检测的模型文件，并在相应的 *.py 文件中填写。
 
+6、2019-4-24 发现在使用numpy 1.16.3时存在问题 “Object arrays cannot be loaded when allow_pickle=False”
+
+	降低numpy 版本到1.16.2解决该问题。
+
+
 有问题，请联系：yuan_yuanxiang@163.com
 
 															2018-4-16

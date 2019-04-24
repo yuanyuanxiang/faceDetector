@@ -22,6 +22,7 @@
     <ProjectGuid>{956891AB-9951-4088-8102-64ABC8763179}</ProjectGuid>
     <RootNamespace>objDetector</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -34,7 +35,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
@@ -49,7 +50,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -75,16 +76,16 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Anaconda3\envs\tfgpu\include;$(SolutionDir)freetype-2.9.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Anaconda3\envs\tfgpu\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\ProgramData\Anaconda3\envs\tfcpu\include;$(SolutionDir)freetype-2.9.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\ProgramData\Anaconda3\envs\tfcpu\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Anaconda3\envs\tfgpu\include;$(SolutionDir)freetype-2.9.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Anaconda3\envs\tfgpu\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\ProgramData\Anaconda3\envs\tfcpu\include;$(SolutionDir)freetype-2.9.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\ProgramData\Anaconda3\envs\tfcpu\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -114,7 +115,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MinimalRebuild>false</MinimalRebuild>
       <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
@@ -134,7 +135,10 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)detect.py $(SolutionDir)x64\$(Configuration)\detect.py</Command>
+      <Command>copy "$(SolutionDir)detect.py" "$(SolutionDir)x64\$(Configuration)\detect.py"
+copy "$(SolutionDir)label_map.ini" "$(SolutionDir)x64\$(Configuration)\label_map.ini"
+copy "$(SolutionDir)HC_SDK\*.*" "$(SolutionDir)x64\$(Configuration)"
+copy "$(SolutionDir)freetype-2.9.1\win64\*.*" "$(SolutionDir)x64\$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -171,7 +175,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -192,7 +196,10 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)detect.py $(SolutionDir)x64\$(Configuration)\detect.py</Command>
+      <Command>copy "$(SolutionDir)detect.py" "$(SolutionDir)x64\$(Configuration)\detect.py"
+copy "$(SolutionDir)label_map.ini" "$(SolutionDir)x64\$(Configuration)\label_map.ini"
+copy "$(SolutionDir)HC_SDK\*.*" "$(SolutionDir)x64\$(Configuration)"
+copy "$(SolutionDir)freetype-2.9.1\win64\*.*" "$(SolutionDir)x64\$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
